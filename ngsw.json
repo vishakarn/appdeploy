@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1744177735740,
+  "timestamp": 1744370136727,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -84,7 +84,7 @@
         "/cordova_plugins.js",
         "/favicon.ico",
         "/index.html",
-        "/main.06020fe3fe50443e.js",
+        "/main.c5e844bb6fe4de35.js",
         "/manifest.webmanifest",
         "/polyfills-core-js.e9b3457756bc2ca9.js",
         "/polyfills-dom.516ff539260f3e0d.js",
@@ -1123,8 +1123,8 @@
     "/cordova_plugins.js": "26276672666ab7951ae47d3bcbe51f9b574b76e3",
     "/favicon.ico": "696dfbca3c3326f3a7832c34da7188bf98d59dbe",
     "/icons8-home.5c3af35990e7b937.svg": "08828a5223afec9acb9e79b6603dcaf5e561f1b9",
-    "/index.html": "36531ab835f8a845e8658c3f5652c06ea4b035fa",
-    "/main.06020fe3fe50443e.js": "619934b8fab5fe8c628e73ca7d09b480595e51e6",
+    "/index.html": "89815dff26d7ebc4d301fdde7b4dbde9f57f0c64",
+    "/main.c5e844bb6fe4de35.js": "2d76c5eb706adc45d63a857aa74b9eb6e1ba827d",
     "/manifest.webmanifest": "9a088b7c4339228d1082e666ce105dc889bc180c",
     "/montserrat-v14-latin-regular.016fddc825bb37e6.woff2": "7b7c670ef2f0ba7fc0ce6437e523ccbdc847fde2",
     "/montserrat-v14-latin-regular.b9de6aa2f4bccfc5.woff": "5af1938d1327395f47c84e57b6ba7756234d2262",
