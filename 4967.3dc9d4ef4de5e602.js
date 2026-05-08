@@ -13120,7 +13120,11 @@ class PaymentDetailsPage {
               // console.log('web browser -->123');
               form.action = result.pay_gay_url;
               form.method = "POST";
-              form.submit();
+              form.target = "_top";
+              document.body.appendChild(form);
+              setTimeout(() => {
+                form.submit();
+              }, 100);
             }
           }
         } else if (_this7.paymentType == '45' && result.merchant_id && result.code != '443') {
