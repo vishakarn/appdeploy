@@ -10908,7 +10908,23 @@ class PaymentDetailsPage {
       this.defaultCall();
       this.validatePromoCoupons();
     });
-    this.options = "location=no,toolbar=yes,hideurlbar=yes,closebuttoncaption=Close";
+    this.options = {
+      toolbar: {
+        height: 56,
+        color: this.theme.primary
+      },
+      title: {
+        color: '#ffffffff',
+        staticText: 'Payment',
+        showPageTitle: true
+      },
+      customButtons: [{
+        wwwImage: 'assets/icon/back_button.png',
+        wwwImagePressed: 'assets/icon/back_button.png',
+        align: 'left',
+        event: 'backPressed'
+      }]
+    };
     this.concessions_category = (_this$commonStorage$g = this.commonStorage.getItem('serviceDetails')) !== null && _this$commonStorage$g !== void 0 && _this$commonStorage$g.concessions_category ? (_this$commonStorage$g2 = this.commonStorage.getItem('serviceDetails')) === null || _this$commonStorage$g2 === void 0 ? void 0 : _this$commonStorage$g2.concessions_category : '';
     this.serviceDetail = this.commonStorage.getItem('serviceDetails');
     this.returnServiceDetails = this.commonStorage.localGet('returnServiceDetails');
@@ -12704,18 +12720,11 @@ class PaymentDetailsPage {
         _this7.loaderService.hideLoadingDefault();
         _this7.globalData.TICKET_DETAILS = result;
         _this7.globalData;
-        if (result.travel_date) {
-          let d = new Date(result.travel_date);
-          result.travelDay = d.getDate();
-          result.travelMonth = _this7.util.getMonthName(d.getMonth() + 1);
-          result.travelYear = d.getFullYear();
-          result.travelDate = _this7.dateService.changeDateFormat(result.travel_date, 'yyyy-mm-dd', 'dd/mm/yyyy');
-        } else {
-          result.travelDay = '';
-          result.travelMonth = '';
-          result.travelYear = '';
-          result.travelDate = '';
-        }
+        let d = new Date(result.travel_date);
+        result.travelDay = d.getDate();
+        result.travelMonth = _this7.util.getMonthName(d.getMonth() + 1);
+        result.travelYear = d.getFullYear();
+        result.travelDate = result.travel_date ? _this7.dateService.changeDateFormat(result.travel_date, 'yyyy-mm-dd', 'dd/mm/yyyy') : '';
         if (result.passenger_details && _this7.bookType == '2') {
           _this7.viewTicket = true;
           if (_this7.metaData.msiteFolder == 'ourbustheme' || _this7.metaData.msiteFolder == 'shyamolitheme') {
@@ -12993,7 +13002,6 @@ class PaymentDetailsPage {
               form.innerHTML = formHtml;
             }
             let payScript = "var form = document.getElementById('ts-app-payment-form-redirect'); ";
-            payScript += "if (!form) { form = document.createElement('form'); form.id = 'ts-app-payment-form-redirect'; document.body.appendChild(form); }";
             // for version 5 or less payment gateway issue this ` token not working
             //let versionNumber = this.platform && this.platform.version && this.platform.version() ? this.platform.version() : false;
             let dirtyEl = '<input type="hidden" id="page_is_dirty" value="no">';
@@ -13005,10 +13013,9 @@ class PaymentDetailsPage {
             payScript += `else {var retVal = confirm("Are you sure you want to go Back?");if( retVal == true ){window.location = "http://local-cancel";}else{form.submit();} }`;
             let payScript2 = "";
             payScript2 += "var form = document.getElementById('ts-app-payment-form-redirect');";
-            payScript2 += "if (!form) { form = document.createElement('form'); form.id = 'ts-app-payment-form-redirect'; document.body.appendChild(form); }";
             payScript2 += "form.innerHTML = `" + formHtml + dirtyEl + "`;";
-            payScript2 += "form.action = `" + result.pay_gay_url + "`;";
-            payScript2 += "form.method = 'POST';";
+            payScript += "form.action = `" + result.pay_gay_url + "`;";
+            payScript += "form.method = 'POST';";
             payScript2 += `var e = document.getElementById("page_is_dirty");`;
             payScript2 += `if (e.value == "yes") {e.value = "yes";form.submit();}`;
             payScript2 += `else {var retVal = confirm("Are you sure you want to go Back?");if( retVal == true ){window.location = "http://local-cancel";}else{form.submit();} }`;
@@ -13021,7 +13028,8 @@ class PaymentDetailsPage {
               payScript = "document.write(`" + htmlStr + result.html_body_contents + "<body></body>`);";
               payScript2 = payScript;
             }
-            if (_this7.platform.is('android') || _this7.platform.is('ios') || _this7.platform.is('capacitor') || _this7.platform.is('cordova')) {
+            if (_this7.appData.isANDROID || _this7.appData.isIOS) {
+              // if (((this.platform.is('android') || this.platform.is('ios')))) {
               console.log("in paybitla form");
               const browser = _this7.iab.create(_this7.appData.BASE_URL + "bookings/payment_gateway_redirect_page", '_blank', _this7.options);
               let self = _this7;
