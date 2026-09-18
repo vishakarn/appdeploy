@@ -6767,15 +6767,6 @@ class GridCoachUsingTableComponent {
       // }, 10);
     })();
   }
-  /**
-   * Same rule gangwayremove() has always applied, only enforced while the grid is
-   * built instead of while it is rendered: a cell is skipped ONLY when it is
-   * explicitly tagged for the opposite deck. Anything else - no tag, 'both', or a
-   * value this code does not recognise - is kept, exactly as before.
-   *
-   * Skipping at build time leaves the slot empty, so the column survives and the
-   * rows behind it stay aligned.
-   */
   belongsToDeck(seat, berthType) {
     if (!seat) {
       return true;
