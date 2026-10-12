@@ -141,22 +141,48 @@ function CancellationPoliciesPage_ng_container_0_ion_content_3_p_1_Template(rf, 
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
 }
+function CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_div_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"]("Between ", p_r1.time_limit_from, " to ", p_r1.time_limit_to, " from the station departure time: ", p_r1.percent, "%");
+  }
+}
+function CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_div_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"]("Beyond ", p_r1.time_limit_from, " before main station departure time: ", p_r1.percent, "% Cancellation Charges");
+  }
+}
 function CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-row", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_div_1_Template, 2, 3, "div", 6)(2, CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_div_2_Template, 2, 2, "div", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const p_r1 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"](" Between ", p_r1.time_limit_from, " to ", p_r1.time_limit_to, " from the station departure time: ", p_r1.percent, "% ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !((p_r1 == null ? null : p_r1.time_limit_from == null ? null : p_r1.time_limit_from.indexOf(30)) > -1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (p_r1 == null ? null : p_r1.time_limit_from == null ? null : p_r1.time_limit_from.indexOf(30)) > -1);
   }
 }
 function CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_Template, 2, 3, "ion-row", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, CancellationPoliciesPage_ng_container_0_ion_content_3_div_2_ion_row_1_Template, 3, 2, "ion-row", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -255,22 +281,48 @@ function CancellationPoliciesPage_ng_template_1_p_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
 }
+function CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_div_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"]("Between ", p_r5.time_limit_from, " to ", p_r5.time_limit_to, " from the station departure time: ", p_r5.percent, "%");
+  }
+}
+function CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_div_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"]("Beyond ", p_r5.time_limit_from, " before main station departure time: ", p_r5.percent, "% Cancellation Charges");
+  }
+}
 function CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-row", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_div_1_Template, 2, 3, "div", 6)(2, CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_div_2_Template, 2, 2, "div", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const p_r5 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"](" Between ", p_r5.time_limit_from, " to ", p_r5.time_limit_to, " from the station departure time: ", p_r5.percent, "% ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !((p_r5 == null ? null : p_r5.time_limit_from == null ? null : p_r5.time_limit_from.indexOf(30)) > -1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (p_r5 == null ? null : p_r5.time_limit_from == null ? null : p_r5.time_limit_from.indexOf(30)) > -1);
   }
 }
 function CancellationPoliciesPage_ng_template_1_div_5_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_Template, 2, 3, "ion-row", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, CancellationPoliciesPage_ng_template_1_div_5_ion_row_1_Template, 3, 2, "ion-row", 29);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {

@@ -2046,31 +2046,20 @@ function DatePickerModalComponent_ng_template_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("showDefaultButtons", false)("value", ctx_r1.value || null)("max", ctx_r1.max || null)("min", ctx_r1.min || null);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("showDefaultButtons", false)("value", ctx_r1.value || undefined)("max", ctx_r1.max || undefined)("min", ctx_r1.min || undefined);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r1.cancelText);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r1.doneText);
   }
 }
-/**
- * Shared date picker modal.
- *
- * Ionic hides its own datetime footer while the month/year wheel is open
- * (`:host(.month-year-picker-open) .datetime-footer { display: none }`), and that
- * footer lives in shadow DOM with no ::part, so the Ok button disappears exactly
- * when you are scrolling to a birth year. This renders its own footer outside
- * <ion-datetime> so Ok/Cancel are always reachable.
- *
- * The picked date is emitted only on Ok, so Cancel (or a backdrop dismiss)
- * leaves the previous date untouched.
- */
 class DatePickerModalComponent {
   constructor() {
     this.modalClass = '';
     this.doneText = 'Ok';
     this.cancelText = 'Cancel';
-    /** emitted only when Ok is tapped, never while spinning the wheels */
+    this.isOpen = false;
+    this.isOpenChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
     this.dateSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.EventEmitter();
   }
   confirm(datetime) {
@@ -2081,11 +2070,16 @@ class DatePickerModalComponent {
     if (picked) {
       this.dateSelected.emit(String(picked));
     }
-    this.dismiss();
+    this.closeModal();
   }
   dismiss() {
     var _this$modal;
     (_this$modal = this.modal) === null || _this$modal === void 0 || _this$modal.dismiss();
+    this.closeModal();
+  }
+  closeModal() {
+    this.isOpen = false;
+    this.isOpenChange.emit(false);
   }
 }
 _DatePickerModalComponent = DatePickerModalComponent;
@@ -2111,23 +2105,28 @@ _DatePickerModalComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_M
     min: "min",
     modalClass: "modalClass",
     doneText: "doneText",
-    cancelText: "cancelText"
+    cancelText: "cancelText",
+    isOpen: "isOpen"
   },
   outputs: {
+    isOpenChange: "isOpenChange",
     dateSelected: "dateSelected"
   },
   decls: 2,
   vars: 3,
-  consts: [["datetime", ""], [2, "--width", "350px", "--height", "fit-content", "--border-radius", "8px", 3, "trigger"], ["mode", "md", "presentation", "date", "showDefaultTitle", "true", 2, "width", "100%", "height", "430px", "--ion-color-base", "var(--iconsAndButtonsColor, var(--ion-color-primary)) !important", "--ion-color-base-rgb", "var(--iconsAndButtonsColor, var(--ion-color-primary)) !important", 3, "showDefaultButtons", "value", "max", "min"], [2, "display", "flex", "justify-content", "flex-end", "align-items", "center", "min-height", "56px", "padding", "8px 12px 12px", "background", "var(--ion-background-color, #fff)"], ["fill", "clear", 2, "--color", "var(--iconsAndButtonsColor, var(--ion-color-primary))", "height", "40px", "font-weight", "700", 3, "click"]],
+  consts: [["datetime", ""], [2, "--width", "350px", "--height", "fit-content", "--border-radius", "8px", 3, "didDismiss", "isOpen"], ["mode", "md", "presentation", "date", "showDefaultTitle", "true", 2, "width", "100%", "height", "430px", "--ion-color-base", "var(--iconsAndButtonsColor, var(--ion-color-primary)) !important", "--ion-color-base-rgb", "var(--iconsAndButtonsColor, var(--ion-color-primary)) !important", 3, "showDefaultButtons", "value", "max", "min"], [2, "display", "flex", "justify-content", "flex-end", "align-items", "center", "min-height", "56px", "padding", "8px 12px 12px", "background", "var(--ion-background-color, #fff)"], ["fill", "clear", 2, "--color", "var(--iconsAndButtonsColor, var(--ion-color-primary))", "height", "40px", "font-weight", "700", 3, "click"]],
   template: function DatePickerModalComponent_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ion-modal", 1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("didDismiss", function DatePickerModalComponent_Template_ion_modal_didDismiss_0_listener() {
+        return ctx.closeModal();
+      });
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, DatePickerModalComponent_ng_template_1_Template, 7, 6, "ng-template");
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.modalClass);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("trigger", ctx.trigger);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("isOpen", ctx.isOpen);
     }
   },
   dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_1__.CommonModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonicModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonButton, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonDatetime, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonModal, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.SelectValueAccessor],

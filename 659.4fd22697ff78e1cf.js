@@ -757,22 +757,48 @@ function IonBottomDrawerComponent_ng_container_1_div_49_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
 }
+function IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_div_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"]("Between ", p_r28.time_limit_from, " to ", p_r28.time_limit_to, " from the station departure time: ", p_r28.percent, "%");
+  }
+}
+function IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_div_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"]("Beyond ", p_r28.time_limit_from, " before main station departure time: ", p_r28.percent, "% Cancellation Charges");
+  }
+}
 function IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-row", 125);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_div_1_Template, 2, 3, "div", 2)(2, IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_div_2_Template, 2, 2, "div", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const p_r28 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"](" Between ", p_r28.time_limit_from, " to ", p_r28.time_limit_to, " from the station departure time: ", p_r28.percent, "% ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !((p_r28 == null ? null : p_r28.time_limit_from == null ? null : p_r28.time_limit_from.indexOf(30)) > -1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (p_r28 == null ? null : p_r28.time_limit_from == null ? null : p_r28.time_limit_from.indexOf(30)) > -1);
   }
 }
 function IonBottomDrawerComponent_ng_container_1_div_50_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 123);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_Template, 2, 3, "ion-row", 124);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_1_div_50_ion_row_1_Template, 3, 2, "ion-row", 124);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -1117,22 +1143,48 @@ function IonBottomDrawerComponent_ng_container_2_div_51_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
 }
+function IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_div_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"]("Between ", p_r40.time_limit_from, " to ", p_r40.time_limit_to, " from the station departure time: ", p_r40.percent, "% ");
+  }
+}
+function IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_div_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"]("Beyond ", p_r40.time_limit_from, " before main station departure time: ", p_r40.percent, "% Cancellation Charges");
+  }
+}
 function IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-row", 125);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_div_1_Template, 2, 3, "div", 2)(2, IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_div_2_Template, 2, 2, "div", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const p_r40 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"](" Between ", p_r40.time_limit_from, " to ", p_r40.time_limit_to, " from the station departure time: ", p_r40.percent, "% ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !((p_r40 == null ? null : p_r40.time_limit_from == null ? null : p_r40.time_limit_from.indexOf(30)) > -1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (p_r40 == null ? null : p_r40.time_limit_from == null ? null : p_r40.time_limit_from.indexOf(30)) > -1);
   }
 }
 function IonBottomDrawerComponent_ng_container_2_div_52_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 123);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_Template, 2, 3, "ion-row", 124);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_2_div_52_ion_row_1_Template, 3, 2, "ion-row", 124);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -1520,22 +1572,48 @@ function IonBottomDrawerComponent_ng_container_3_div_52_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
 }
+function IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_div_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"]("Between ", p_r54.time_limit_from, " to ", p_r54.time_limit_to, " from the station departure time: ", p_r54.percent, "% ");
+  }
+}
+function IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_div_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const p_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"]("Beyond ", p_r54.time_limit_from, " before main station departure time: ", p_r54.percent, "% Cancellation Charges");
+  }
+}
 function IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "ion-row", 125);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_div_1_Template, 2, 3, "div", 2)(2, IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_div_2_Template, 2, 2, "div", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const p_r54 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate3"](" Between ", p_r54.time_limit_from, " to ", p_r54.time_limit_to, " from the station departure time: ", p_r54.percent, "% ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", !((p_r54 == null ? null : p_r54.time_limit_from == null ? null : p_r54.time_limit_from.indexOf(30)) > -1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (p_r54 == null ? null : p_r54.time_limit_from == null ? null : p_r54.time_limit_from.indexOf(30)) > -1);
   }
 }
 function IonBottomDrawerComponent_ng_container_3_div_53_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 123);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_Template, 2, 3, "ion-row", 124);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, IonBottomDrawerComponent_ng_container_3_div_53_ion_row_1_Template, 3, 2, "ion-row", 124);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -10239,6 +10317,9 @@ class SeatLayoutPage {
         this.busType = serviceDetails !== null && serviceDetails !== void 0 && serviceDetails.bus_type ? serviceDetails === null || serviceDetails === void 0 ? void 0 : serviceDetails.bus_type : '';
         console.log('D Details', serviceDetails);
         this.commonStorage.localSet('serviceDetails', serviceDetails);
+        if (this.isreturnTrip) {
+          this.commonStorage.localSet('returnServiceDetails', serviceDetails);
+        }
         if (serviceDetails.via_city_detail) {
           this.showNon = false;
           this.commonStorage.localSet('via_city_detail', serviceDetails.via_city_detail);
