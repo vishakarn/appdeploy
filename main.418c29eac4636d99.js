@@ -1664,15 +1664,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   CapacitorCookies: () => (/* binding */ CapacitorCookies),
 /* harmony export */   CapacitorException: () => (/* binding */ CapacitorException),
 /* harmony export */   CapacitorHttp: () => (/* binding */ CapacitorHttp),
+/* harmony export */   CapacitorPlatforms: () => (/* binding */ CapacitorPlatforms),
 /* harmony export */   ExceptionCode: () => (/* binding */ ExceptionCode),
+/* harmony export */   Plugins: () => (/* binding */ Plugins),
 /* harmony export */   WebPlugin: () => (/* binding */ WebPlugin),
 /* harmony export */   WebView: () => (/* binding */ WebView),
+/* harmony export */   addPlatform: () => (/* binding */ addPlatform),
 /* harmony export */   buildRequestInit: () => (/* binding */ buildRequestInit),
-/* harmony export */   registerPlugin: () => (/* binding */ registerPlugin)
+/* harmony export */   registerPlugin: () => (/* binding */ registerPlugin),
+/* harmony export */   registerWebPlugin: () => (/* binding */ registerWebPlugin),
+/* harmony export */   setPlatform: () => (/* binding */ setPlatform)
 /* harmony export */ });
 /* harmony import */ var _Users_vishaka_Documents_officeWorkspace_tsrtcCustomerApp_ts_operator_ionic4_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 10467);
 
 /*! Capacitor: https://capacitorjs.com/ - MIT License */
+const createCapacitorPlatforms = win => {
+  const defaultPlatformMap = new Map();
+  defaultPlatformMap.set('web', {
+    name: 'web'
+  });
+  const capPlatforms = win.CapacitorPlatforms || {
+    currentPlatform: {
+      name: 'web'
+    },
+    platforms: defaultPlatformMap
+  };
+  const addPlatform = (name, platform) => {
+    capPlatforms.platforms.set(name, platform);
+  };
+  const setPlatform = name => {
+    if (capPlatforms.platforms.has(name)) {
+      capPlatforms.currentPlatform = capPlatforms.platforms.get(name);
+    }
+  };
+  capPlatforms.addPlatform = addPlatform;
+  capPlatforms.setPlatform = setPlatform;
+  return capPlatforms;
+};
+const initPlatforms = win => win.CapacitorPlatforms = createCapacitorPlatforms(win);
+/**
+ * @deprecated Set `CapacitorCustomPlatform` on the window object prior to runtime executing in the web app instead
+ */
+const CapacitorPlatforms = /*#__PURE__*/initPlatforms(typeof globalThis !== 'undefined' ? globalThis : typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {});
+/**
+ * @deprecated Set `CapacitorCustomPlatform` on the window object prior to runtime executing in the web app instead
+ */
+const addPlatform = CapacitorPlatforms.addPlatform;
+/**
+ * @deprecated Set `CapacitorCustomPlatform` on the window object prior to runtime executing in the web app instead
+ */
+const setPlatform = CapacitorPlatforms.setPlatform;
+const legacyRegisterWebPlugin = (cap, webPlugin) => {
+  var _a;
+  const config = webPlugin.config;
+  const Plugins = cap.Plugins;
+  if (!(config === null || config === void 0 ? void 0 : config.name)) {
+    // TODO: add link to upgrade guide
+    throw new Error(`Capacitor WebPlugin is using the deprecated "registerWebPlugin()" function, but without the config. Please use "registerPlugin()" instead to register this web plugin."`);
+  }
+  // TODO: add link to upgrade guide
+  console.warn(`Capacitor plugin "${config.name}" is using the deprecated "registerWebPlugin()" function`);
+  if (!Plugins[config.name] || ((_a = config === null || config === void 0 ? void 0 : config.platforms) === null || _a === void 0 ? void 0 : _a.includes(cap.getPlatform()))) {
+    // Add the web plugin into the plugins registry if there already isn't
+    // an existing one. If it doesn't already exist, that means
+    // there's no existing native implementation for it.
+    // - OR -
+    // If we already have a plugin registered (meaning it was defined in the native layer),
+    // then we should only overwrite it if the corresponding web plugin activates on
+    // a certain platform. For example: Geolocation uses the WebPlugin on Android but not iOS
+    Plugins[config.name] = webPlugin;
+  }
+};
 var ExceptionCode;
 (function (ExceptionCode) {
   /**
@@ -1710,14 +1772,21 @@ const getPlatformId = win => {
   }
 };
 const createCapacitor = win => {
+  var _a, _b, _c, _d, _e;
   const capCustomPlatform = win.CapacitorCustomPlatform || null;
   const cap = win.Capacitor || {};
   const Plugins = cap.Plugins = cap.Plugins || {};
-  const getPlatform = () => {
+  /**
+   * @deprecated Use `capCustomPlatform` instead, default functions like registerPlugin will function with the new object.
+   */
+  const capPlatforms = win.CapacitorPlatforms;
+  const defaultGetPlatform = () => {
     return capCustomPlatform !== null ? capCustomPlatform.name : getPlatformId(win);
   };
-  const isNativePlatform = () => getPlatform() !== 'web';
-  const isPluginAvailable = pluginName => {
+  const getPlatform = ((_a = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _a === void 0 ? void 0 : _a.getPlatform) || defaultGetPlatform;
+  const defaultIsNativePlatform = () => getPlatform() !== 'web';
+  const isNativePlatform = ((_b = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _b === void 0 ? void 0 : _b.isNativePlatform) || defaultIsNativePlatform;
+  const defaultIsPluginAvailable = pluginName => {
     const plugin = registeredPlugins.get(pluginName);
     if (plugin === null || plugin === void 0 ? void 0 : plugin.platforms.has(getPlatform())) {
       // JS implementation available for the current platform.
@@ -1729,13 +1798,18 @@ const createCapacitor = win => {
     }
     return false;
   };
-  const getPluginHeader = pluginName => {
+  const isPluginAvailable = ((_c = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _c === void 0 ? void 0 : _c.isPluginAvailable) || defaultIsPluginAvailable;
+  const defaultGetPluginHeader = pluginName => {
     var _a;
     return (_a = cap.PluginHeaders) === null || _a === void 0 ? void 0 : _a.find(h => h.name === pluginName);
   };
+  const getPluginHeader = ((_d = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _d === void 0 ? void 0 : _d.getPluginHeader) || defaultGetPluginHeader;
   const handleError = err => win.console.error(err);
+  const pluginMethodNoop = (_target, prop, pluginName) => {
+    return Promise.reject(`${pluginName} does not have an implementation of "${prop}".`);
+  };
   const registeredPlugins = new Map();
-  const registerPlugin = (pluginName, jsImplementations = {}) => {
+  const defaultRegisterPlugin = (pluginName, jsImplementations = {}) => {
     const registeredPlugin = registeredPlugins.get(pluginName);
     if (registeredPlugin) {
       console.warn(`Capacitor plugin "${pluginName}" already registered. Cannot register plugins twice.`);
@@ -1857,6 +1931,7 @@ const createCapacitor = win => {
     });
     return proxy;
   };
+  const registerPlugin = ((_e = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _e === void 0 ? void 0 : _e.registerPlugin) || defaultRegisterPlugin;
   // Add in convertFileSrc for web, it will already be available in native context
   if (!cap.convertFileSrc) {
     cap.convertFileSrc = filePath => filePath;
@@ -1865,24 +1940,51 @@ const createCapacitor = win => {
   cap.handleError = handleError;
   cap.isNativePlatform = isNativePlatform;
   cap.isPluginAvailable = isPluginAvailable;
+  cap.pluginMethodNoop = pluginMethodNoop;
   cap.registerPlugin = registerPlugin;
   cap.Exception = CapacitorException;
   cap.DEBUG = !!cap.DEBUG;
   cap.isLoggingEnabled = !!cap.isLoggingEnabled;
+  // Deprecated props
+  cap.platform = cap.getPlatform();
+  cap.isNative = cap.isNativePlatform();
   return cap;
 };
 const initCapacitorGlobal = win => win.Capacitor = createCapacitor(win);
 const Capacitor = /*#__PURE__*/initCapacitorGlobal(typeof globalThis !== 'undefined' ? globalThis : typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {});
 const registerPlugin = Capacitor.registerPlugin;
+/**
+ * @deprecated Provided for backwards compatibility for Capacitor v2 plugins.
+ * Capacitor v3 plugins should import the plugin directly. This "Plugins"
+ * export is deprecated in v3, and will be removed in v4.
+ */
+const Plugins = Capacitor.Plugins;
+/**
+ * Provided for backwards compatibility. Use the registerPlugin() API
+ * instead, and provide the web plugin as the "web" implmenetation.
+ * For example
+ *
+ * export const Example = registerPlugin('Example', {
+ *   web: () => import('./web').then(m => new m.Example())
+ * })
+ *
+ * @deprecated Deprecated in v3, will be removed from v4.
+ */
+const registerWebPlugin = plugin => legacyRegisterWebPlugin(Capacitor, plugin);
 
 /**
  * Base class web plugins should extend.
  */
 class WebPlugin {
-  constructor() {
+  constructor(config) {
     this.listeners = {};
     this.retainedEventArguments = {};
     this.windowListeners = {};
+    if (config) {
+      // TODO: add link to upgrade guide
+      console.warn(`Capacitor WebPlugin "${config.name}" config object was deprecated in v3 and will be removed in v4.`);
+      this.config = config;
+    }
   }
   addListener(eventName, listenerFunc) {
     var _this = this;
@@ -1941,8 +2043,7 @@ class WebPlugin {
     listeners.forEach(listener => listener(data));
   }
   hasListeners(eventName) {
-    var _a;
-    return !!((_a = this.listeners[eventName]) === null || _a === void 0 ? void 0 : _a.length);
+    return !!this.listeners[eventName].length;
   }
   registerWindowListener(windowEventName, pluginEventName) {
     this.windowListeners[pluginEventName] = {
@@ -2034,7 +2135,7 @@ class CapacitorCookiesPluginWeb extends WebPlugin {
         const encodedKey = encode(options.key);
         const encodedValue = encode(options.value);
         // Clean & sanitize options
-        const expires = options.expires ? `; expires=${options.expires.replace('expires=', '')}` : '';
+        const expires = `; expires=${(options.expires || '').replace('expires=', '')}`; // Default is "; expires="
         const path = (options.path || '/').replace('path=', ''); // Default is "path=/"
         const domain = options.url != null && options.url.length > 0 ? `domain=${options.url}` : '';
         document.cookie = `${encodedKey}=${encodedValue || ''}${expires}; path=${path}; ${domain};`;
@@ -13530,7 +13631,7 @@ var _AppRoutingModule;
 
 const routes = [{
   path: 'home',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(990), __webpack_require__.e(5960), __webpack_require__.e(4692), __webpack_require__.e(4727), __webpack_require__.e(4076), __webpack_require__.e(2076), __webpack_require__.e(5055)]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 45055)).then(m => m.HomePageModule)
+  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(990), __webpack_require__.e(5960), __webpack_require__.e(4692), __webpack_require__.e(4076), __webpack_require__.e(2076), __webpack_require__.e(5055)]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 45055)).then(m => m.HomePageModule)
 }, {
   path: '',
   component: _splash_video_splash_video_component__WEBPACK_IMPORTED_MODULE_2__.SplashVideoComponent,
@@ -13551,7 +13652,7 @@ const routes = [{
   // loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
   children: [{
     path: 'home',
-    loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(990), __webpack_require__.e(5960), __webpack_require__.e(4692), __webpack_require__.e(4727), __webpack_require__.e(4076), __webpack_require__.e(2076), __webpack_require__.e(5055)]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 45055)).then(m => m.HomePageModule)
+    loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(990), __webpack_require__.e(5960), __webpack_require__.e(4692), __webpack_require__.e(4076), __webpack_require__.e(2076), __webpack_require__.e(5055)]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 45055)).then(m => m.HomePageModule)
   }, {
     path: 'tabs',
     loadChildren: () => __webpack_require__.e(/*! import() */ 637).then(__webpack_require__.bind(__webpack_require__, /*! ./tabs/tabs.module */ 20637)).then(m => m.TabsPageModule)
@@ -13708,7 +13809,7 @@ const routes = [{
   loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(6250), __webpack_require__.e(7249)]).then(__webpack_require__.bind(__webpack_require__, /*! ./snack-preference/snack-preference.module */ 67249)).then(m => m.SnackPreferencePageModule)
 }, {
   path: 'payment-details',
-  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1598), __webpack_require__.e(4727), __webpack_require__.e(2076), __webpack_require__.e(4967)]).then(__webpack_require__.bind(__webpack_require__, /*! ./payment-details/payment-details.module */ 64967)).then(m => m.PaymentDetailsPageModule)
+  loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1598), __webpack_require__.e(2076), __webpack_require__.e(4967)]).then(__webpack_require__.bind(__webpack_require__, /*! ./payment-details/payment-details.module */ 64967)).then(m => m.PaymentDetailsPageModule)
 }, {
   path: 'ease-buzz-page',
   loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2076), __webpack_require__.e(369)]).then(__webpack_require__.bind(__webpack_require__, /*! ./ease-buzz-page/ease-buzz-page.module */ 90369)).then(m => m.EaseBuzzPagePageModule)
@@ -16073,7 +16174,7 @@ class AppData {
     this.isANDROID = false; // For making android build change <base href="./"> to <base href="/"> otherwise keep it <base href="/"> in index.html page
     this.isWEBAPP = true; // For making www folder or mobweb build change <base href="/"> to <base href="./"> otherwise keep it <base href="/"> in index.html page
     //Mobile web or IOS version can change from here
-    this.mobileWebVersion = "12.10.26"; // For making www folder or mobweb build change <base href="/"> to <base href="./"> otherwise keep it <base href="/"> in index.html page
+    this.mobileWebVersion = "21.10.26"; // For making www folder or mobweb build change <base href="/"> to <base href="./"> otherwise keep it <base href="/"> in index.html page
     this.iosVersion = "19.9";
     this.androidVersion = "26.2";
     this.IsVideoSplash = false; // For making www folder or mobweb build change <base href="/"> to <base href="./"> otherwise keep it <base href="/"> in index.html page

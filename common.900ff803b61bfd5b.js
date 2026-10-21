@@ -1,5 +1,132 @@
-"use strict";
 (self["webpackChunkapp"] = self["webpackChunkapp"] || []).push([[2076],{
+
+/***/ 50837
+/*!******************************************************!*\
+  !*** ./capacitor-upi-plugin/dist/esm/definitions.js ***!
+  \******************************************************/
+(__unused_webpack_module, exports) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+/***/ },
+
+/***/ 58887
+/*!************************************************!*\
+  !*** ./capacitor-upi-plugin/dist/esm/index.js ***!
+  \************************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  var desc = Object.getOwnPropertyDescriptor(m, k);
+  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+    desc = {
+      enumerable: true,
+      get: function () {
+        return m[k];
+      }
+    };
+  }
+  Object.defineProperty(o, k2, desc);
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  __setModuleDefault(result, mod);
+  return result;
+};
+var __exportStar = this && this.__exportStar || function (m, exports) {
+  for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.UpiPlugin = void 0;
+const core_1 = __webpack_require__(/*! @capacitor/core */ 15083);
+const UpiPlugin = (0, core_1.registerPlugin)('UpiPlugin', {
+  web: () => Promise.resolve().then(() => __importStar(__webpack_require__(/*! ./web */ 30965))).then(m => new m.UpiPluginWeb())
+});
+exports.UpiPlugin = UpiPlugin;
+__exportStar(__webpack_require__(/*! ./definitions */ 50837), exports);
+
+/***/ },
+
+/***/ 30965
+/*!**********************************************!*\
+  !*** ./capacitor-upi-plugin/dist/esm/web.js ***!
+  \**********************************************/
+(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _asyncToGenerator = (__webpack_require__(/*! ./node_modules/@babel/runtime/helpers/asyncToGenerator.js */ 29293)["default"]);
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.UpiPluginWeb = void 0;
+const core_1 = __webpack_require__(/*! @capacitor/core */ 15083);
+class UpiPluginWeb extends core_1.WebPlugin {
+  isUpiAppPresent() {
+    return _asyncToGenerator(function* () {
+      console.log('UPI functionality is not available on web platform');
+      return {
+        available: false
+      };
+    })();
+  }
+  getUpiApps() {
+    return _asyncToGenerator(function* () {
+      console.log('UPI apps detection is not available on web platform');
+      return {
+        apps: []
+      };
+    })();
+  }
+  launchUpiPayment(options) {
+    return _asyncToGenerator(function* () {
+      console.log('UPI payment launching is not available on web platform', options);
+      return {
+        success: false,
+        status: 'FAILURE',
+        error: 'UPI payments are not supported on web platform'
+      };
+    })();
+  }
+  getUpiAppCapabilities(options) {
+    return _asyncToGenerator(function* () {
+      console.log('UPI app capabilities check is not available on web platform', options);
+      return {
+        packageName: options.packageName,
+        supportsPayment: false,
+        supportsCollection: false
+      };
+    })();
+  }
+}
+exports.UpiPluginWeb = UpiPluginWeb;
+
+/***/ },
 
 /***/ 9361
 /*!***********************************************************!*\
@@ -7,6 +134,7 @@
   \***********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ r)
@@ -300,6 +428,7 @@ const i = (e, o, i) => {
   \***********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   d: () => (/* binding */ o),
@@ -320,6 +449,7 @@ const d = "undefined" != typeof window ? window : void 0,
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ createButtonActiveGesture)
@@ -401,6 +531,7 @@ const createButtonActiveGesture = (el, isButton) => {
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   g: () => (/* binding */ getCapacitor)
@@ -426,6 +557,7 @@ const getCapacitor = () => {
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ compareOptions),
@@ -477,6 +609,7 @@ const isOptionSelected = (currentValue, compareValue, compareWith) => {
   \***********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   i: () => (/* binding */ isRTL)
@@ -507,6 +640,7 @@ const isRTL = hostEl => {
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   startFocusVisible: () => (/* binding */ startFocusVisible)
@@ -583,6 +717,7 @@ const startFocusVisible = rootEl => {
   \**************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   I: () => (/* binding */ ImpactStyle),
@@ -764,6 +899,7 @@ const hapticImpact = options => {
   \*************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   a: () => (/* binding */ arrowBackSharp),
@@ -832,6 +968,7 @@ const searchSharp = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/
   \*************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   I: () => (/* binding */ ION_CONTENT_CLASS_SELECTOR),
@@ -988,6 +1125,7 @@ const resetContentScrollY = (contentEl, initialScrollY) => {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   K: () => (/* binding */ Keyboard),
@@ -1079,6 +1217,7 @@ const Keyboard = {
   \***************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ createKeyboardController)
@@ -1274,6 +1413,7 @@ const createKeyboardController = /*#__PURE__*/function () {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   KEYBOARD_DID_CLOSE: () => (/* binding */ KEYBOARD_DID_CLOSE),
@@ -1442,6 +1582,7 @@ const copyVisualViewport = visualViewport => {
   \***********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   c: () => (/* binding */ createLockController)
@@ -1499,6 +1640,7 @@ const createLockController = () => {
   \***********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   S: () => (/* binding */ SPINNERS)
@@ -1656,6 +1798,7 @@ const SPINNERS = spinners;
   \******************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createSwipeBackGesture: () => (/* binding */ createSwipeBackGesture)
@@ -1754,6 +1897,7 @@ const createSwipeBackGesture = (el, canStartHandler, onStartHandler, onMoveHandl
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   w: () => (/* binding */ watchForOptions)
@@ -1813,6 +1957,7 @@ const findCheckedOption = (node, tagName) => {
   \***************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DrawerState: () => (/* binding */ DrawerState)
@@ -1832,6 +1977,7 @@ var DrawerState;
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CommonHeaderComponent: () => (/* binding */ CommonHeaderComponent)
@@ -2009,6 +2155,7 @@ _CommonHeaderComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODU
   \*****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DatePickerModalComponent: () => (/* binding */ DatePickerModalComponent)
@@ -2141,6 +2288,7 @@ _DatePickerModalComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_M
   \*******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EaseBuzzPagePage: () => (/* binding */ EaseBuzzPagePage)
@@ -2212,6 +2360,7 @@ _EaseBuzzPagePage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0_
   \*************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   FaqPopoverPage: () => (/* binding */ FaqPopoverPage)
@@ -2437,6 +2586,7 @@ _FaqPopoverPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__[
   \*************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ModalPhonebookingInfoPage: () => (/* binding */ ModalPhonebookingInfoPage)
@@ -2561,12 +2711,44 @@ _ModalPhonebookingInfoPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_
 
 /***/ },
 
+/***/ 43773
+/*!*********************************************!*\
+  !*** ./src/app/pipes/filter-oculto.pipe.ts ***!
+  \*********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FilterOcultoPipe: () => (/* binding */ FilterOcultoPipe)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 17705);
+var _FilterOcultoPipe;
+
+class FilterOcultoPipe {
+  transform(items) {
+    return items.filter(item => !item.oculto);
+  }
+}
+_FilterOcultoPipe = FilterOcultoPipe;
+_FilterOcultoPipe.ɵfac = function FilterOcultoPipe_Factory(__ngFactoryType__) {
+  return new (__ngFactoryType__ || _FilterOcultoPipe)();
+};
+_FilterOcultoPipe.ɵpipe = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({
+  name: "filterOculto",
+  type: _FilterOcultoPipe,
+  pure: true
+});
+
+/***/ },
+
 /***/ 8824
 /*!*****************************************!*\
   !*** ./src/app/popover/popover.page.ts ***!
   \*****************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PopoverPage: () => (/* binding */ PopoverPage)
@@ -2676,6 +2858,7 @@ _PopoverPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ
   \***********************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SafeHtmlPipe: () => (/* binding */ SafeHtmlPipe)
@@ -2705,12 +2888,59 @@ _SafeHtmlPipe.ɵpipe = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["
 
 /***/ },
 
+/***/ 71915
+/*!***********************************************!*\
+  !*** ./src/app/services/upi-check.service.ts ***!
+  \***********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   UpiCheckService: () => (/* binding */ UpiCheckService)
+/* harmony export */ });
+/* harmony import */ var _Users_vishaka_Documents_officeWorkspace_tsrtcCustomerApp_ts_operator_ionic4_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 10467);
+/* harmony import */ var capacitor_upi_plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! capacitor-upi-plugin */ 58887);
+/* harmony import */ var capacitor_upi_plugin__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(capacitor_upi_plugin__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 17705);
+
+var _UpiCheckService;
+
+
+class UpiCheckService {
+  constructor() {}
+  // Simple method to check if UPI apps are installed
+  checkUpiAppsInstalled() {
+    return (0,_Users_vishaka_Documents_officeWorkspace_tsrtcCustomerApp_ts_operator_ionic4_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      try {
+        const result = yield capacitor_upi_plugin__WEBPACK_IMPORTED_MODULE_1__.UpiPlugin.isUpiAppPresent();
+        return result.available;
+      } catch (error) {
+        console.error('Error checking UPI apps:', error);
+        return false;
+      }
+    })();
+  }
+}
+_UpiCheckService = UpiCheckService;
+_UpiCheckService.ɵfac = function UpiCheckService_Factory(__ngFactoryType__) {
+  return new (__ngFactoryType__ || _UpiCheckService)();
+};
+_UpiCheckService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({
+  token: _UpiCheckService,
+  factory: _UpiCheckService.ɵfac,
+  providedIn: 'root'
+});
+
+/***/ },
+
 /***/ 16688
 /*!**********************************************************************!*\
   !*** ./src/app/white-common-header/white-common-header.component.ts ***!
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   WhiteCommonHeaderComponent: () => (/* binding */ WhiteCommonHeaderComponent)
@@ -2898,6 +3128,7 @@ _WhiteCommonHeaderComponent.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED
   \********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   interval: () => (/* binding */ interval)
@@ -2922,6 +3153,7 @@ function interval(period = 0, scheduler = _scheduler_async__WEBPACK_IMPORTED_MOD
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   timer: () => (/* binding */ timer)
@@ -2965,12 +3197,48 @@ function timer(dueTime = 0, intervalOrScheduler, scheduler = _scheduler_async__W
 
 /***/ },
 
+/***/ 29293
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
+  \*****************************************************************/
+(module) {
+
+function asyncGeneratorStep(n, t, e, r, o, a, c) {
+  try {
+    var i = n[a](c),
+      u = i.value;
+  } catch (n) {
+    return void e(n);
+  }
+  i.done ? t(u) : Promise.resolve(u).then(r, o);
+}
+function _asyncToGenerator(n) {
+  return function () {
+    var t = this,
+      e = arguments;
+    return new Promise(function (r, o) {
+      var a = n.apply(t, e);
+      function _next(n) {
+        asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
+      }
+      function _throw(n) {
+        asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
+      }
+      _next(void 0);
+    });
+  };
+}
+module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ },
+
 /***/ 85756
 /*!***********************************************!*\
   !*** ./node_modules/swiper/modules/index.mjs ***!
   \***********************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   A11y: () => (/* reexport safe */ _a11y_mjs__WEBPACK_IMPORTED_MODULE_9__["default"]),
@@ -3052,6 +3320,7 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************/
 (module) {
 
+"use strict";
 module.exports = /*#__PURE__*/JSON.parse('[{"name":"Afghanistan","dialCode":"+93","code":"AF","flag":"🇦🇫"},{"name":"Albania","dialCode":"+355","code":"AL","flag":"🇦🇱"},{"name":"Algeria","dialCode":"+213","code":"DZ","flag":"🇩🇿"},{"name":"Andorra","dialCode":"+376","code":"AD","flag":"🇦🇩"},{"name":"Angola","dialCode":"+244","code":"AO","flag":"🇦🇴"},{"name":"Argentina","dialCode":"+54","code":"AR","flag":"🇦🇷"},{"name":"Armenia","dialCode":"+374","code":"AM","flag":"🇦🇲"},{"name":"Australia","dialCode":"+61","code":"AU","flag":"🇦🇺"},{"name":"Austria","dialCode":"+43","code":"AT","flag":"🇦🇹"},{"name":"Azerbaijan","dialCode":"+994","code":"AZ","flag":"🇦🇿"},{"name":"Bahamas","dialCode":"+1-242","code":"BS","flag":"🇧🇸"},{"name":"Bahrain","dialCode":"+973","code":"BH","flag":"🇧🇭"},{"name":"Bangladesh","dialCode":"+880","code":"BD","flag":"🇧🇩"},{"name":"Barbados","dialCode":"+1-246","code":"BB","flag":"🇧🇧"},{"name":"Belarus","dialCode":"+375","code":"BY","flag":"🇧🇾"},{"name":"Belgium","dialCode":"+32","code":"BE","flag":"🇧🇪"},{"name":"Belize","dialCode":"+501","code":"BZ","flag":"🇧🇿"},{"name":"Benin","dialCode":"+229","code":"BJ","flag":"🇧🇯"},{"name":"Bhutan","dialCode":"+975","code":"BT","flag":"🇧🇹"},{"name":"Bolivia","dialCode":"+591","code":"BO","flag":"🇧🇴"},{"name":"Bosnia and Herzegovina","dialCode":"+387","code":"BA","flag":"🇧🇦"},{"name":"Botswana","dialCode":"+267","code":"BW","flag":"🇧🇼"},{"name":"Brazil","dialCode":"+55","code":"BR","flag":"🇧🇷"},{"name":"Brunei","dialCode":"+673","code":"BN","flag":"🇧🇳"},{"name":"Bulgaria","dialCode":"+359","code":"BG","flag":"🇧🇬"},{"name":"Burkina Faso","dialCode":"+226","code":"BF","flag":"🇧🇫"},{"name":"Burundi","dialCode":"+257","code":"BI","flag":"🇧🇮"},{"name":"Cambodia","dialCode":"+855","code":"KH","flag":"🇰🇭"},{"name":"Cameroon","dialCode":"+237","code":"CM","flag":"🇨🇲"},{"name":"Canada","dialCode":"+1","code":"CA","flag":"🇨🇦"},{"name":"Cape Verde","dialCode":"+238","code":"CV","flag":"🇨🇻"},{"name":"Central African Republic","dialCode":"+236","code":"CF","flag":"🇨🇫"},{"name":"Chad","dialCode":"+235","code":"TD","flag":"🇹🇩"},{"name":"Chile","dialCode":"+56","code":"CL","flag":"🇨🇱"},{"name":"China","dialCode":"+86","code":"CN","flag":"🇨🇳"},{"name":"Colombia","dialCode":"+57","code":"CO","flag":"🇨🇴"},{"name":"Comoros","dialCode":"+269","code":"KM","flag":"🇰🇲"},{"name":"Congo","dialCode":"+242","code":"CG","flag":"🇨🇬"},{"name":"Costa Rica","dialCode":"+506","code":"CR","flag":"🇨🇷"},{"name":"Croatia","dialCode":"+385","code":"HR","flag":"🇭🇷"},{"name":"Cuba","dialCode":"+53","code":"CU","flag":"🇨🇺"},{"name":"Cyprus","dialCode":"+357","code":"CY","flag":"🇨🇾"},{"name":"Czech Republic","dialCode":"+420","code":"CZ","flag":"🇨🇿"},{"name":"Denmark","dialCode":"+45","code":"DK","flag":"🇩🇰"},{"name":"Djibouti","dialCode":"+253","code":"DJ","flag":"🇩🇯"},{"name":"Dominica","dialCode":"+1-767","code":"DM","flag":"🇩🇲"},{"name":"Dominican Republic","dialCode":"+1-809","code":"DO","flag":"🇩🇴"},{"name":"Ecuador","dialCode":"+593","code":"EC","flag":"🇪🇨"},{"name":"Egypt","dialCode":"+20","code":"EG","flag":"🇪🇬"},{"name":"El Salvador","dialCode":"+503","code":"SV","flag":"🇸🇻"},{"name":"Estonia","dialCode":"+372","code":"EE","flag":"🇪🇪"},{"name":"Eswatini","dialCode":"+268","code":"SZ","flag":"🇸🇿"},{"name":"Ethiopia","dialCode":"+251","code":"ET","flag":"🇪🇹"},{"name":"Fiji","dialCode":"+679","code":"FJ","flag":"🇫🇯"},{"name":"Finland","dialCode":"+358","code":"FI","flag":"🇫🇮"},{"name":"France","dialCode":"+33","code":"FR","flag":"🇫🇷"},{"name":"Gabon","dialCode":"+241","code":"GA","flag":"🇬🇦"},{"name":"Gambia","dialCode":"+220","code":"GM","flag":"🇬🇲"},{"name":"Georgia","dialCode":"+995","code":"GE","flag":"🇬🇪"},{"name":"Germany","dialCode":"+49","code":"DE","flag":"🇩🇪"},{"name":"Ghana","dialCode":"+233","code":"GH","flag":"🇬🇭"},{"name":"Greece","dialCode":"+30","code":"GR","flag":"🇬🇷"},{"name":"Grenada","dialCode":"+1-473","code":"GD","flag":"🇬🇩"},{"name":"Guatemala","dialCode":"+502","code":"GT","flag":"🇬🇹"},{"name":"Guinea","dialCode":"+224","code":"GN","flag":"🇬🇳"},{"name":"Guyana","dialCode":"+592","code":"GY","flag":"🇬🇾"},{"name":"Haiti","dialCode":"+509","code":"HT","flag":"🇭🇹"},{"name":"Honduras","dialCode":"+504","code":"HN","flag":"🇭🇳"},{"name":"Hungary","dialCode":"+36","code":"HU","flag":"🇭🇺"},{"name":"Iceland","dialCode":"+354","code":"IS","flag":"🇮🇸"},{"name":"India","dialCode":"+91","code":"IN","flag":"🇮🇳"},{"name":"Indonesia","dialCode":"+62","code":"ID","flag":"🇮🇩"},{"name":"Iran","dialCode":"+98","code":"IR","flag":"🇮🇷"},{"name":"Iraq","dialCode":"+964","code":"IQ","flag":"🇮🇶"},{"name":"Ireland","dialCode":"+353","code":"IE","flag":"🇮🇪"},{"name":"Israel","dialCode":"+972","code":"IL","flag":"🇮🇱"},{"name":"Italy","dialCode":"+39","code":"IT","flag":"🇮🇹"},{"name":"Jamaica","dialCode":"+1-876","code":"JM","flag":"🇯🇲"},{"name":"Japan","dialCode":"+81","code":"JP","flag":"🇯🇵"},{"name":"Jordan","dialCode":"+962","code":"JO","flag":"🇯🇴"},{"name":"Kazakhstan","dialCode":"+7","code":"KZ","flag":"🇰🇿"},{"name":"Kenya","dialCode":"+254","code":"KE","flag":"🇰🇪"},{"name":"Kiribati","dialCode":"+686","code":"KI","flag":"🇰🇮"},{"name":"Korea, North","dialCode":"+850","code":"KP","flag":"🇰🇵"},{"name":"Korea, South","dialCode":"+82","code":"KR","flag":"🇰🇷"},{"name":"Kuwait","dialCode":"+965","code":"KW","flag":"🇰🇼"},{"name":"Kyrgyzstan","dialCode":"+996","code":"KG","flag":"🇰🇬"},{"name":"Laos","dialCode":"+856","code":"LA","flag":"🇱🇦"},{"name":"Latvia","dialCode":"+371","code":"LV","flag":"🇱🇻"},{"name":"Lebanon","dialCode":"+961","code":"LB","flag":"🇱🇧"},{"name":"Lesotho","dialCode":"+266","code":"LS","flag":"🇱🇸"},{"name":"Liberia","dialCode":"+231","code":"LR","flag":"🇱🇷"},{"name":"Libya","dialCode":"+218","code":"LY","flag":"🇱🇾"},{"name":"Liechtenstein","dialCode":"+423","code":"LI","flag":"🇱🇮"},{"name":"Lithuania","dialCode":"+370","code":"LT","flag":"🇱🇹"},{"name":"Luxembourg","dialCode":"+352","code":"LU","flag":"🇱🇺"}]');
 
 /***/ }
