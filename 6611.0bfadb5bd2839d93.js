@@ -86,6 +86,36 @@ _ModalPhonebookingInfoPageModule.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMP
   });
 })();
 
+/***/ },
+
+/***/ 43773
+/*!*********************************************!*\
+  !*** ./src/app/pipes/filter-oculto.pipe.ts ***!
+  \*********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   FilterOcultoPipe: () => (/* binding */ FilterOcultoPipe)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 17705);
+var _FilterOcultoPipe;
+
+class FilterOcultoPipe {
+  transform(items) {
+    return items.filter(item => !item.oculto);
+  }
+}
+_FilterOcultoPipe = FilterOcultoPipe;
+_FilterOcultoPipe.ɵfac = function FilterOcultoPipe_Factory(__ngFactoryType__) {
+  return new (__ngFactoryType__ || _FilterOcultoPipe)();
+};
+_FilterOcultoPipe.ɵpipe = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({
+  name: "filterOculto",
+  type: _FilterOcultoPipe,
+  pure: true
+});
+
 /***/ }
 
 }]);

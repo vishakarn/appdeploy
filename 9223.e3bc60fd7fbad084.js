@@ -2830,7 +2830,11 @@ class MorePage {
     });
   }
   cancellation() {
-    this.navCtrl.navigateForward('cancellation-policies');
+    this.router.navigate(['cancellation-policies'], {
+      state: {
+        resId: null
+      }
+    });
   }
   termsCond() {
     this.navCtrl.navigateForward('term-conditions', {

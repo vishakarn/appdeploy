@@ -108,9 +108,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_appdata__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/appdata */ 40172);
 /* harmony import */ var _services_util_provider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/util-provider */ 81101);
 /* harmony import */ var _services_common_storage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/common-storage */ 96970);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ 16213);
-/* harmony import */ var _white_common_header_white_common_header_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../white-common-header/white-common-header.component */ 16688);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 83087);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ 16213);
+/* harmony import */ var _white_common_header_white_common_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../white-common-header/white-common-header.component */ 16688);
 var _CancellationPoliciesPage;
+
 
 
 
@@ -367,12 +369,13 @@ function CancellationPoliciesPage_ng_template_1_Template(rf, ctx) {
   }
 }
 class CancellationPoliciesPage {
-  constructor(navCtrl, apiFactory, appData, util, commonStorage) {
+  constructor(navCtrl, apiFactory, appData, util, commonStorage, router) {
     this.navCtrl = navCtrl;
     this.apiFactory = apiFactory;
     this.appData = appData;
     this.util = util;
     this.commonStorage = commonStorage;
+    this.router = router;
     this.cancellationPolices = [];
     this.isIos = false;
     this.errorMessage = '';
@@ -386,7 +389,10 @@ class CancellationPoliciesPage {
     this.metaData = this.commonStorage.getItem("metaData");
   }
   defaultCall() {
-    this.apiFactory.getTermsAndConditionsWithCancellationPolicies().subscribe(htmlData => {
+    var _this$router$getCurre;
+    let resId = (_this$router$getCurre = this.router.getCurrentNavigation()) === null || _this$router$getCurre === void 0 || (_this$router$getCurre = _this$router$getCurre.extras.state) === null || _this$router$getCurre === void 0 ? void 0 : _this$router$getCurre['resId'];
+    if (!resId) resId = '';
+    this.apiFactory.getTermsAndConditionsWithCancellationPolicies(resId).subscribe(htmlData => {
       this.htmlData = htmlData;
       if (!this.htmlData[0].message) {
         this.cancellationPolices = htmlData;
@@ -403,7 +409,7 @@ class CancellationPoliciesPage {
 }
 _CancellationPoliciesPage = CancellationPoliciesPage;
 _CancellationPoliciesPage.ɵfac = function CancellationPoliciesPage_Factory(__ngFactoryType__) {
-  return new (__ngFactoryType__ || _CancellationPoliciesPage)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_3__.NavController), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_api_factory__WEBPACK_IMPORTED_MODULE_4__.ApiFactory), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_appdata__WEBPACK_IMPORTED_MODULE_5__.AppData), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_util_provider__WEBPACK_IMPORTED_MODULE_6__.UtilProvider), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_common_storage__WEBPACK_IMPORTED_MODULE_7__.CommonStorage));
+  return new (__ngFactoryType__ || _CancellationPoliciesPage)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_ionic_angular__WEBPACK_IMPORTED_MODULE_3__.NavController), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_api_factory__WEBPACK_IMPORTED_MODULE_4__.ApiFactory), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_appdata__WEBPACK_IMPORTED_MODULE_5__.AppData), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_util_provider__WEBPACK_IMPORTED_MODULE_6__.UtilProvider), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_common_storage__WEBPACK_IMPORTED_MODULE_7__.CommonStorage), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.Router));
 };
 _CancellationPoliciesPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
   type: _CancellationPoliciesPage,
@@ -421,7 +427,7 @@ _CancellationPoliciesPage.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_M
       _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.appData.newTheme)("ngIfElse", showOldTheme_r6);
     }
   },
-  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_8__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_8__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_8__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_8__.NgStyle, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonRow, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonToolbar, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonBackButton, _white_common_header_white_common_header_component__WEBPACK_IMPORTED_MODULE_9__.WhiteCommonHeaderComponent],
+  dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgStyle, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonButtons, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonContent, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonHeader, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonRow, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonToolbar, _ionic_angular__WEBPACK_IMPORTED_MODULE_2__.IonBackButton, _white_common_header_white_common_header_component__WEBPACK_IMPORTED_MODULE_10__.WhiteCommonHeaderComponent],
   styles: ["ion-content[_ngcontent-%COMP%] {\n  --ion-background-color: var(--viewBgColor);\n}\n\n.context[_ngcontent-%COMP%] {\n  font-family: NotoSans;\n  font-size: 14px;\n  font-weight: normal;\n  line-height: 1.43;\n  letter-spacing: normal;\n  color: #3e3e52;\n}\n\n.txt-policy[_ngcontent-%COMP%] {\n  font-size: 14px;\n  color: #3e3e52;\n  margin: 16px;\n  font-weight: 300;\n}\n\n.mr-tp-plcy[_ngcontent-%COMP%] {\n  height: 100%;\n  margin-top: 10%;\n}\n\n.theme_one_txt-policy[_ngcontent-%COMP%] {\n  font-size: 14px;\n  color: #3e3e52;\n  margin-top: 10px;\n}\n\n.theme_one_mr-tp-plcy[_ngcontent-%COMP%] {\n  background: #F3F3F7;\n  margin: 10px;\n}\n\np[_ngcontent-%COMP%] {\n  font-size: 14px;\n  margin-left: 10px;\n  color: #3e3e52 !important;\n  font-weight: 500;\n}\n\n.errorMsg[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n  width: 100%;\n}\n\n.shyamoli-cancel-title[_ngcontent-%COMP%] {\n  color: #000 !important;\n  font-weight: 700;\n  font-size: 18px;\n  text-align: center;\n  width: 100%;\n  display: block;\n  padding-right: 30px;\n}\n\n.shyamoli-head[_ngcontent-%COMP%] {\n  font-size: 16px;\n  text-align: center;\n}\n\n.themeone-bg-cl[_ngcontent-%COMP%] {\n  color: var(--primaryText) !important;\n  --background: var(--homeBgColor) !important;\n  -webkit-text-fill-color: var(--primaryText) !important;\n}"]
 });
 
